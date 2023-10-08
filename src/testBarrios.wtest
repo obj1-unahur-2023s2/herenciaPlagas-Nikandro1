@@ -1,0 +1,30 @@
+import barrios.*
+import elementos.*
+import plagas.*
+
+describe "Probamos un barrio"{
+	const hogar1 = new Hogar(mugre = 0, confort = 100)
+	const huerta1 = new Huerta(produccion = 200)
+	const mascota1 = new Mascota(salud = 250)
+	const mascota2 = new Mascota(salud = 300)
+	const hogar2 = new Hogar(mugre = 0, confort = 100)
+	const huerta2 = new Huerta(produccion = 50)
+	const barrio1 = new Barrio()
+
+	method initialize(){
+		barrio1.agregarABarrio(hogar1)
+		barrio1.agregarABarrio(huerta1)
+		barrio1.agregarABarrio(mascota1)
+		barrio1.agregarABarrio(hogar2)
+		barrio1.agregarABarrio(mascota2)
+		barrio1.agregarABarrio(huerta2)
+	}
+	
+	test "Probamos que es un buen barrio"{
+		assert.that(barrio1.esCopado())
+	}
+	test "La cantidad de elementos copados son 4"{
+		assert.equals(4, barrio1.cantidadDeBuenos())
+	}
+
+}

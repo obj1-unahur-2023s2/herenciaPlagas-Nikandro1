@@ -1,0 +1,31 @@
+import elementos.*
+import plagas.*
+
+describe "Testeamos los elementos"{
+	const garrapatas = new Garrapata(poblacion = 50)
+	const hogar1 = new Hogar(mugre = 0, confort = 100)
+	const huerta1 = new Huerta(produccion = 100)
+	const mascota1 = new Mascota(salud = 250)
+
+	test "Testeamos que el hogar es bueno"{
+		assert.that(hogar1.esBueno())
+	}
+	test "Testeamos que al ser atacado por las garrapatas la mugre sube a 100"{
+		hogar1.efectoAtaque(garrapatas)
+		assert.equals(100, hogar1.mugre())
+	}
+	test "Al crear la huerta con 100 de produccion no es buena"{
+		assert.notThat(huerta1.esBueno())
+	}
+	test "La huerta al ser atacada por las garrapatas queda su nivel de produccion en 0"{
+		huerta1.efectoAtaque(garrapatas)
+		assert.equals(80, huerta1.produccion())
+	}
+	test "Al iniciar con salud 250 la mascota no es buena"{
+		assert.notThat(mascota1.esBueno())
+	}
+
+
+
+
+}

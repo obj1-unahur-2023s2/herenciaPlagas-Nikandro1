@@ -1,0 +1,49 @@
+import plagas.*
+
+describe "probamos las plagas"{
+		const garrapatas = new Garrapata(poblacion = 50)
+		const cucarachas = new Cucaracha(poblacion = 50, pesoPromedio = 10)
+		const mosquitos = new Mosquito(poblacion = 50)
+		const pulgas = new Pulgas(poblacion = 50)
+
+	test "Probamos que las garrapatas trasmiten enfermedas"{
+		assert.that(garrapatas.trasmiteEnfermedades())
+	}
+	test "Probamos que el nivel de danio es el doble de su poblacion(100)"{
+		assert.equals(100, garrapatas.nivelDanio())
+	}
+	test "Probamos que cuando atacan su poblacion sube a 60"{
+		garrapatas.efectoAtaque()
+		assert.equals(60, garrapatas.poblacion())
+	}
+	test "Probamos que las cucarachas si trasmiten enfermedades"{
+		assert.that(cucarachas.trasmiteEnfermedades())
+	}
+	test "Probamos que el nivel de danio de las cucas es la mitad de su poblacion(25)"{
+		assert.equals(25, cucarachas.nivelDanio())
+	}
+	test "Probamos que cuando atacan su poblacion sube a 55"{
+		cucarachas.efectoAtaque()
+		assert.equals(55, cucarachas.poblacion())
+	}
+	test "Probamos que los mosquitos no trasmiten enfermedades"{
+		assert.notThat(mosquitos.trasmiteEnfermedades())
+	}
+	test "Probamos que el nivel de danio de los mosquitos es igual a su poblacion(50)"{
+		assert.equals(50, mosquitos.nivelDanio())
+	}
+	test "Probamos que cuando los mosquitos atacan su poblacion sube a 55"{
+		mosquitos.efectoAtaque()
+		assert.equals(55, mosquitos.poblacion())
+	}
+	test "Probamos que las pulgas trasmiten enfermedades"{
+		assert.that(pulgas.trasmiteEnfermedades())
+	}
+	test "Probamos que el nivel de danio de las pulgas es el doble de su poblacion(100)"{
+		assert.equals(100, pulgas.nivelDanio())
+	}
+	test "Probamos que cuando las pulgas atacan su poblacion sube a 55"{
+		pulgas.efectoAtaque()
+		assert.equals(55, pulgas.poblacion())
+	}
+}
